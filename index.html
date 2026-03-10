@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walk for Peace</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
+body{font-family:'Open Sans',sans-serif;color:#1a1a1a;background:#fff;overflow-x:hidden;font-size:18px;}
+img{display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:inherit;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:130px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+.nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
+.nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;font-weight:400;color:#1a1a1a;}
+.nav-logo-text em{font-style:italic;color:#1B56E8;}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none;margin-right:1.2rem;}
+.nav-links a{font-size:1.18rem;color:#111;text-decoration:none;transition:color .18s;font-weight:700;}
+.nav-links a:hover,.nav-links a.on,.nav-links a:active{color:#111;font-weight:700;}
+.nav-btn{background:#8B5C2A;color:#fff;border:none;border-radius:4px;padding:.7rem 2rem;font-size:1.1rem;font-weight:800;cursor:pointer;transition:background .18s;white-space:nowrap;font-family:inherit;}
+.nav-btn:active{background:#141515;}
+.nav-btn:hover{background:#161618;}
+.nav-btn.yellow{background:#F5A721;}
+.nav-btn.yellow:hover{background:#D99010;}
+
+/* ── HERO ── */
+/* Exact prototype: LEFT = photo of monks marching (flag, orange robes, white dog), RIGHT = white with big title */
+.hero{
+  margin-top:130px;
+  margin-top:100px;
+  position:relative;
+  height:calc(100vh - 54px);
+  min-height:520px;
+  background:url('images/home.jpg') center top/cover no-repeat; /* shift photo upward to show monk head */
+  display:flex;
+  align-items:center;
+  justify-content:flex-end; /* move text holder to right */
+  padding:0 10% 0 5%; /* extra right padding now */
+}
+/* gradient overlay sits behind photo and text */
+.hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.45) 0%,
+        rgba(0,0,0,0) 50%,
+        rgba(0,0,0,0) 100%
+    );
+  pointer-events:none;
+}
+.hero-text{
+  display:flex;flex-direction:column;justify-content:center;
+  /* make the text container a vertical rectangle */
+  padding:5rem 3rem;
+  position:relative;
+  z-index:2;
+  max-width:450px;          /* slightly wider vertical box */
+  width:100%;
+  max-height:100%;          /* allow it to stretch vertically */
+  min-height:400px;         /* ensure a taller minimum height */
+  margin-left:7rem;         /* add even more width to the left */
+  background:rgba(0,0,0,0.15); /* much lighter so monk face shows through */
+  backdrop-filter:blur(7px);
+  border-radius:12px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.2);
+  color:#fff;
+}
+.hero-eyebrow{
+  font-size:1rem;color:#fff;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:1rem;
+}
+.hero-title{
+  font-family:'Merriweather',serif;
+  font-size:clamp(3.5rem,6vw,5.5rem); /* bigger hero header */
+  color:#fff;font-weight:700;line-height:1.18;
+  margin-bottom:.8rem;
+}
+.hero-sub{
+  font-size:1.1rem;color:rgba(255,255,255,0.9);
+  line-height:1.6;margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:.75rem;flex-wrap:wrap;}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}  
+  40% {transform: translateY(-8px);}  
+  60% {transform: translateY(-4px);}  
+}
+.btn-blue{background:#e08911;color:#fff;border:none;border-radius:5px;padding:.6rem 1.75rem;font-size:.90rem;font-weight:700;cursor:pointer;transition:all .2s;animation:bounce 3s infinite;}
+.btn-blue:hover{background:#b58005;transform:translateY(-1px);}
+.btn-yellow{background:#d37a0c;color:#fff;border:none;border-radius:5px;padding:.6rem 1.75rem;font-size:.90rem;font-weight:700;cursor:pointer;transition:all .2s;animation:bounce 3s infinite;}
+.btn-yellow:hover{background:#D99010;transform:translateY(-1px);}
+
+/* Dove floating */
+.dove{position:absolute;top:14%;right:8%;font-size:2rem;opacity:.5;animation:dv 4s ease-in-out infinite;}
+@keyframes dv{0%,100%{transform:translateY(0)rotate(-5deg)}50%{transform:translateY(-14px)rotate(5deg)}}
+
+/* ── OUR STORY ── */
+.story{
+  background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);
+  padding:4rem;
+  border-top:1px solid #eef2f8;
+}
+.story-inner{
+  display:grid;grid-template-columns:540px 1fr;
+  gap:3rem;max-width:1300px;margin:0 auto;
+  align-items:start;
+}
+.story-img{border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.13);}
+.story-img img{width:100%;height:480px;max-width:520px;object-fit:cover;display:block;margin:0 auto;}
+.story-text h2{
+  font-family:'Merriweather',serif;
+  font-size:2.4rem;color:#1340A0;font-weight:800;
+  margin-bottom:1.2rem;
+}
+.story-text p{font-size:1rem;color:#4a5568;line-height:1.8;margin-bottom:.9rem;}
+.checks{list-style:none;margin:.8rem 0 1.3rem;}
+.checks li{display:flex;align-items:flex-start;gap:.55rem;font-size:.83rem;color:#4a5568;margin-bottom:.45rem;line-height:1.5;}
+.checks li::before{content:'✓';color:#27AE60;font-weight:700;flex-shrink:0;}
+
+/* ── FOOTER ── */
+footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.8rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.8rem;}
+.ft-logo-text{font-family:'Merriweather',serif;font-size:.9rem;color:#fff;margin-bottom:.5rem;}
+.ft-logo-text em{font-style:italic;color:#F5A721;}
+.ft-brand p{font-size:.76rem;line-height:1.65;max-width:200px;}
+.ft-col h4{color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.65rem;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:.38rem;}
+.ft-col a{font-size:.76rem;color:rgba(255,255,255,.48);transition:color .18s;}
+.ft-col a:hover{color:#F5A721;}
+.ft-bottom{display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
+    <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Dhammacetiya</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="on">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
+</nav>
+
+<!-- HERO: LEFT photo, RIGHT text -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="dove">🕊️</div>
+    <p class="hero-eyebrow">🕊 Buddhist Peace Foundation</p>
+    <h1 class="hero-title">Walk for Peace</h1>
+    <p class="hero-sub">Walking Together for a Peaceful World</p>
+    <div class="hero-btns">
+      <button class="btn-blue" onclick="location.href='join.html'">Join the Walk</button>
+      <button class="btn-yellow" onclick="location.href='donate.html'">Donate</button>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story">
+  <div class="story-inner">
+    <div class="story-img">
+      <img src="./images/peacewalking.jpg" alt="Monks in ceremony">
+    </div>
+    <div class="story-text">
+      <h2>Our Story</h2>
+      <p>There once was a time when practitioners of the Dharma walked barefoot through rice fields and mountain trails — not to reach a destination, but as the practice itself. Walk for Peace was born from that ancient tradition.</p>
+      <p>We are a nonprofit Buddhist foundation bringing together walkers, monks, communities and donors from across the world in a shared act of compassion.</p>
+      <p>We always go out as servants. Thong your pact of others. Please register and join to go out.</p>
+      <ul class="checks">
+        <li>You will join non-violence walkers</li>
+        <li>Thong your joining this of address</li>
+        <li>Please register among our community</li>
+      </ul>
+      <button class="btn-blue" onclick="location.href='join.html'">Join the Walk</button>
+    </div>
+  </div>
+</section>
+
+<!-- TEMPLES SHOWCASE -->
+<section class="temples" style="background:#f8f6f2; padding:3.5rem 0 2.5rem 0;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <h2 style="font-family:'Merriweather',serif; font-size:2.2rem; color:#8B5C2A; font-weight:800; text-align:center; margin-bottom:2.2rem;">Temples Along the Walk</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:2.2rem;">
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; align-items:center; padding:1.2rem 1rem;">
+        <img src="images/Dhammacetiya Temple.jpg" alt="Dhammacetiya Temple" style="width:100%; max-width:260px; height:170px; object-fit:cover; border-radius:8px; margin-bottom:1rem;" />
+        <h3 style="font-size:1.25rem; color:#4a2c29; font-weight:700; margin-bottom:.5rem;">Dhammacetiya Temple</h3>
+        <p style="font-size:.98rem; color:#4a5568; text-align:center;">A historic center of peace and meditation, Dhammacetiya Temple welcomes all who seek tranquility and wisdom.</p>
+      </div>
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; align-items:center; padding:1.2rem 1rem;">
+        <img src="images/Bodhi Monastery.jpg" alt="Bodhi Monastery" style="width:100%; max-width:260px; height:170px; object-fit:cover; border-radius:8px; margin-bottom:1rem;" />
+        <h3 style="font-size:1.25rem; color:#4a2c29; font-weight:700; margin-bottom:.5rem;">Bodhi Monastery</h3>
+        <p style="font-size:.98rem; color:#4a5568; text-align:center;">Known for its ancient Bodhi tree, this monastery is a gathering place for monks and laypeople to practice together.</p>
+      </div>
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; align-items:center; padding:1.2rem 1rem;">
+        <img src="images/Lotus Peace Pagoda.jpg" alt="Lotus Peace Pagoda" style="width:100%; max-width:260px; height:170px; object-fit:cover; border-radius:8px; margin-bottom:1rem;" />
+        <h3 style="font-size:1.25rem; color:#4a2c29; font-weight:700; margin-bottom:.5rem;">Lotus Peace Pagoda</h3>
+        <p style="font-size:.98rem; color:#4a5568; text-align:center;">A symbol of harmony, the Lotus Peace Pagoda stands as a beacon for non-violence and loving-kindness on the walk route.</p>
+      </div>
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.07); overflow:hidden; display:flex; flex-direction:column; align-items:center; padding:1.2rem 1rem;">
+        <img src="images/Sangha Community Center.jpg" alt="Sangha Community Center" style="width:100%; max-width:260px; height:170px; object-fit:cover; border-radius:8px; margin-bottom:1rem;" />
+        <h3 style="font-size:1.25rem; color:#4a2c29; font-weight:700; margin-bottom:.5rem;">Sangha Community Center</h3>
+        <p style="font-size:.98rem; color:#4a5568; text-align:center;">A vibrant hub for community service and Dhamma talks, open to all faiths and backgrounds.</p>
+      </div>
+    </div>
+  </div>
+ </section>
+
+<!-- BOLD BUDDHISM HERO SECTION -->
+<section style="background:linear-gradient(120deg,#f3f6fa 0%,#e9f7f2 100%);padding:4rem 0 2.5rem 0;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <h1 style="font-family:'Merriweather',serif;font-size:2.7rem;color:#8B5C2A;font-weight:900;margin-bottom:1.1rem;">Discover the Wonders of Buddhism</h1>
+    <p style="font-size:1.18rem;color:#4a5568;max-width:700px;margin:0 auto 1.5rem auto;">Explore the teachings, traditions, and living legacy of the Buddha. Join us in a journey of compassion, wisdom, and peace for all beings.</p>
+    <a href="about.html" style="display:inline-block;background:#8B5C2A;color:#fff;padding:.9rem 2.2rem;border-radius:6px;font-weight:700;font-size:1.1rem;text-decoration:none;margin-top:1.2rem;">EXPLORE</a>
+  </div>
+</section>
+
+<!-- PROJECT HIGHLIGHTS SECTION -->
+<section style="background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);padding:3.5rem 0 2.5rem 0;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Merriweather',serif;font-size:2rem;color:#1340A0;font-weight:800;margin-bottom:1.1rem;">Each donation is a brick to turn aspirations into reality</h2>
+    <p style="font-size:1.08rem;color:#4a5568;max-width:700px;margin:0 auto 1.5rem auto;">Your support helps us build temples, support communities, and preserve the Dharma for future generations. Every contribution, big or small, is a step toward a more peaceful world.</p>
+    <a href="donate.html" style="display:inline-block;background:#e08911;color:#fff;padding:.8rem 2rem;border-radius:6px;font-weight:700;font-size:1.05rem;text-decoration:none;">Donate Now</a>
+  </div>
+</section>
+
+<!-- ACTIVITIES & NEWS SECTION -->
+<section style="background:#f8f6f2;padding:3.5rem 0 2.5rem 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <h2 style="font-family:'Merriweather',serif;font-size:2.1rem;color:#8B5C2A;font-weight:800;text-align:center;margin-bottom:2.2rem;">Activities & News</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2.2rem;">
+      <div style="background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:1.2rem 1rem;">
+        <h3 style="font-size:1.15rem;color:#1340A0;font-weight:700;margin-bottom:.5rem;">International Vesak 2026</h3>
+        <p style="font-size:.98rem;color:#4a5568;">Join us for the global celebration of Vesak 2026, with events, talks, and volunteer opportunities at Huong Dao Buddhist Temple, Fort Worth, Texas.</p>
+        <a href="https://dhammacetiya.com/international-vesak-2026-letter-of-annoucement/" target="_blank" style="color:#8B5C2A;font-weight:700;">Learn More</a>
+      </div>
+      <div style="background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:1.2rem 1rem;">
+        <h3 style="font-size:1.15rem;color:#1340A0;font-weight:700;margin-bottom:.5rem;">Walk for Peace – Official Song</h3>
+        <p style="font-size:.98rem;color:#4a5568;">Experience the spirit of the walk through music. Listen to the official song featuring T.N.L and join the movement for peace.</p>
+        <a href="https://dhammacetiya.com/walk-for-peace-official-song-feat-tnl/" target="_blank" style="color:#8B5C2A;font-weight:700;">Listen</a>
+      </div>
+      <div style="background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:1.2rem 1rem;">
+        <h3 style="font-size:1.15rem;color:#1340A0;font-weight:700;margin-bottom:.5rem;">Book: The Footsteps of a Buddhist Monk</h3>
+        <p style="font-size:.98rem;color:#4a5568;">Read the inspiring story of the journey, now available in print. Follow the path of mindfulness and service.</p>
+        <a href="https://dhammacetiya.com/announcement-printing-the-footsteps-of-a-buddhist-monk-book/" target="_blank" style="color:#8B5C2A;font-weight:700;">Read More</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENDORSEMENTS & BOARD OF ADVISORS SECTION -->
+<section style="background:linear-gradient(120deg,#f3f6fa 0%,#e9f7f2 100%);padding:3.5rem 0 2.5rem 0;">
+  <div style="max-width:1100px;margin:0 auto;">
+    <h2 style="font-family:'Merriweather',serif;font-size:2.1rem;color:#8B5C2A;font-weight:800;text-align:center;margin-bottom:2.2rem;">Endorsements & Board of Advisors</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:2.2rem;">
+      <div style="background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:1.2rem 1rem;">
+        <h3 style="font-size:1.1rem;color:#1340A0;font-weight:700;margin-bottom:.5rem;">City of Haltom City, Texas</h3>
+        <p style="font-size:.98rem;color:#4a5568;">Proclamation in support of Walk for Peace and the Dhammacetiya project.</p>
+        <a href="https://dhammacetiya.com/city-of-haltom-city-proclamation-in-support-of-walk-for-peace/" target="_blank" style="color:#8B5C2A;font-weight:700;">View</a>
+      </div>
+      <div style="background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:1.2rem 1rem;">
+        <h3 style="font-size:1.1rem;color:#1340A0;font-weight:700;margin-bottom:.5rem;">City of Austin, Texas</h3>
+        <p style="font-size:.98rem;color:#4a5568;">Proclamation in support of Walk for Peace and the Dhammacetiya project.</p>
+        <a href="https://dhammacetiya.com/city-of-austin-proclamation-in-support-of-walk-for-peace/" target="_blank" style="color:#8B5C2A;font-weight:700;">View</a>
+      </div>
+      <div style="background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:1.2rem 1rem;">
+        <h3 style="font-size:1.1rem;color:#1340A0;font-weight:700;margin-bottom:.5rem;">Board of Advisors</h3>
+        <p style="font-size:.98rem;color:#4a5568;">Meet the venerable advisors from Vietnam, Myanmar, Thailand, Sri Lanka, Cambodia, and Laos guiding our mission.</p>
+        <a href="https://dhammacetiya.com/advisors/" target="_blank" style="color:#8B5C2A;font-weight:700;">See Advisors</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT MEANING & LEGACY SECTION -->
+<section style="background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);padding:3.5rem 0 2.5rem 0;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Merriweather',serif;font-size:2rem;color:#1340A0;font-weight:800;margin-bottom:1.1rem;">Creating a Legacy for Future Generations</h2>
+    <p style="font-size:1.08rem;color:#4a5568;max-width:700px;margin:0 auto 1.5rem auto;">The Dhammacetiya project honors and enshrines the entire Buddhist Canon, propagates and preserves the righteous Dhamma, and provides wholesome connections to sentient beings. Each donation is a step toward making an imprint of the Dhamma in the hearts of Buddhist devotees for generations to come.</p>
+    <a href="https://dhammacetiya.com/stupa/" target="_blank" style="display:inline-block;background:#8B5C2A;color:#fff;padding:.8rem 2rem;border-radius:6px;font-weight:700;font-size:1.05rem;text-decoration:none;">Discover The Stupas</a>
+  </div>
+</section>
+
+<!-- STRONG CALL TO ACTION SECTION -->
+<section style="background:#e9f7f2;padding:3rem 0 2rem 0;">
+  <div style="max-width:1100px;margin:0 auto;text-align:center;">
+    <h2 style="font-family:'Merriweather',serif;font-size:2rem;color:#8B5C2A;font-weight:800;margin-bottom:1.1rem;">Ready to Make a Difference?</h2>
+    <p style="font-size:1.08rem;color:#4a5568;max-width:700px;margin:0 auto 1.5rem auto;">Support our mission, join our events, or follow us on social media to stay connected and inspired.</p>
+    <div style="display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;">
+      <a href="donate.html" style="background:#e08911;color:#fff;padding:.8rem 2rem;border-radius:6px;font-weight:700;font-size:1.05rem;text-decoration:none;">Donate</a>
+      <a href="join.html" style="background:#8B5C2A;color:#fff;padding:.8rem 2rem;border-radius:6px;font-weight:700;font-size:1.05rem;text-decoration:none;">Join the Walk</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div>
+      <p>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</p>
+    </div>
+    <div class="ft-col"><h4>Navigate</h4><ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="donate.html">Donate</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Get Involved</h4><ul>
+      <li><a href="join.html">Join the Walk</a></li>
+      <li><a href="#">Volunteer</a></li>
+      <li><a href="#">Partner</a></li>
+    </ul></div>
+    <div class="ft-col"><h4>Foundation</h4><ul>
+      <li><a href="#">Annual Report</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul></div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Walk for Peace Foundation · 501(c)(3) Nonprofit</span>
+    <span>🕊 May all beings be happy</span>
+  </div>
+</footer>
+
+</body>
+</html>

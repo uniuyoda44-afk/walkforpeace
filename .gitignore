@@ -1,0 +1,28 @@
+# Ignore Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore images folder if not needed in repo
+# images/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore OneDrive sync files
+*.tmp
+*.lnk
+
+# Uncomment below to ignore all HTML files (if needed)
+# *.html

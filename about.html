@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About - Walk for Peace</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{font-size:16px;}
+body{font-family:'Open Sans',sans-serif;color:#1a1a1a;background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);overflow-x:hidden;font-size:18px;}
+img{display:block;}
+a{text-decoration:none;color:inherit;}
+button{cursor:pointer;font-family:inherit;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+.nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
+.nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;font-weight:400;color:#1a1a1a;}
+.nav-logo-text em{font-style:italic;color:#1B56E8;}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none;margin-right:1.2rem;}
+.nav-links a{font-size:1.18rem;color:#111;text-decoration:none;transition:color .18s;font-weight:700;}
+.nav-links a:hover,.nav-links a.on,.nav-links a:active{color:#111;font-weight:700;}
+.nav-btn{background:#8B5C2A;color:#fff;border:none;border-radius:4px;padding:.7rem 2rem;font-size:1.1rem;font-weight:800;cursor:pointer;transition:background .18s;white-space:nowrap;font-family:inherit;}
+.nav-btn:active{background:#141515;}
+.nav-btn:hover{background:#161618;}
+.nav-btn.yellow{background:#F5A721;}
+.nav-btn.yellow:hover{background:#D99010;}
+
+/* HERO */
+.about-hero{
+  margin-top:100px;
+  min-height:420px;
+  background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:3.5rem 1rem 2.5rem 1rem;position:relative;
+}
+.about-hero h1{
+  font-family:'Merriweather',serif;font-size:2.8rem;color:#8B5C2A;font-weight:900;margin-bottom:1.1rem;letter-spacing:.01em;
+}
+.about-hero p{
+  font-size:1.18rem;color:#4a5568;max-width:600px;margin:0 auto 1.5rem auto;
+}
+.about-hero .dove-tr{font-size:2.5rem;position:absolute;top:2.2rem;right:7%;opacity:.18;}
+
+/* PHOTO STRIP */
+.monks-photo{width:100%;max-width:1100px;margin:0 auto 2.5rem auto;position:relative;overflow:hidden;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,.13);}
+.monks-photo img{width:100%;height:260px;object-fit:cover;filter:brightness(0.93) saturate(1.1);}
+.monks-photo-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,0.12) 0%,rgba(255,255,255,0.01) 100%);z-index:2;}
+
+/* STORY SECTION */
+.story{background:rgba(255,255,255,0.92);padding:4rem 0;}
+.story-inner{display:grid;grid-template-columns:520px 1fr;gap:3rem;max-width:1200px;margin:0 auto;align-items:start;}
+.story-img{border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.13);}
+.story-img img{width:100%;height:420px;max-width:520px;object-fit:cover;display:block;margin:0 auto;}
+.story-text h2{font-family:'Merriweather',serif;font-size:2.4rem;color:#1340A0;font-weight:800;margin-bottom:1.2rem;}
+.story-text p{font-size:1rem;color:#4a5568;line-height:1.8;margin-bottom:.9rem;}
+.checks{list-style:none;margin:.8rem 0 1.3rem;}
+.checks li{display:flex;align-items:flex-start;gap:.55rem;font-size:.93rem;color:#4a5568;margin-bottom:.45rem;line-height:1.5;}
+.checks li::before{content:'✓';color:#27AE60;font-weight:700;flex-shrink:0;}
+
+/* RELIGION SECTION */
+.religion-section{background:linear-gradient(120deg,#f3f6fa 0%,#e9f7f2 100%);padding:4rem 0;}
+.religion-inner{max-width:1100px;margin:0 auto;display:flex;gap:2.5rem;align-items:center;flex-wrap:wrap;}
+.religion-img{flex:1;min-width:320px;max-width:420px;}
+.religion-img img{width:100%;border-radius:14px;box-shadow:0 6px 24px rgba(0,0,0,.11);}
+.religion-content{flex:2;min-width:320px;}
+.religion-content h2{font-family:'Merriweather',serif;font-size:2.1rem;color:#8B5C2A;font-weight:800;margin-bottom:1.1rem;}
+.religion-content p{font-size:1.08rem;color:#3a3a3a;line-height:1.7;margin-bottom:1.1rem;}
+
+/* ACHIEVEMENTS SECTION */
+.achievements-section{background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);padding:4rem 0;}
+.achievements-inner{max-width:1100px;margin:0 auto;}
+.achievements-title{font-family:'Merriweather',serif;font-size:2.1rem;color:#1340A0;font-weight:800;margin-bottom:2.2rem;text-align:center;}
+.achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2.2rem;}
+.achievement-card{background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(0,0,0,0.07);padding:2.2rem 1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;}
+.achievement-card img{width:80px;height:80px;object-fit:cover;border-radius:50%;margin-bottom:1.1rem;box-shadow:0 2px 8px rgba(0,0,0,.09);}
+.achievement-card h3{font-size:1.18rem;color:#8B5C2A;font-weight:700;margin-bottom:.5rem;}
+.achievement-card p{font-size:.98rem;color:#4a5568;}
+
+footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.8rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.8rem;}
+.ft-logo-text{font-family:'Merriweather',serif;font-size:.9rem;color:#fff;margin-bottom:.5rem;}
+.ft-logo-text em{font-style:italic;color:#F5A721;}
+.ft-brand p{font-size:.76rem;line-height:1.65;max-width:200px;}
+.ft-col h4{color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.65rem;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:.38rem;}
+.ft-col a{font-size:.76rem;color:rgba(255,255,255,.48);transition:color .18s;}
+.ft-col a:hover{color:#F5A721;}
+.ft-bottom{display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
+    <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Dhammacetiya</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="on">About</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
+</nav>
+
+
+
+
+<!-- PURPOSE OF THE WALK FOR PEACE (Cloned from dhammacetiya.com) -->
+<section class="about-hero" style="margin-top:100px; min-height:420px; background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3.5rem 1rem 2.5rem 1rem; position:relative;">
+  <div class="dove-tr" style="font-size:2.5rem; position:absolute; top:2.2rem; right:7%; opacity:.18;">🕊</div>
+  <h1 style="font-family:'Merriweather',serif; font-size:2.8rem; color:#8B5C2A; font-weight:900; margin-bottom:1.1rem; letter-spacing:.01em;">Purpose of the Walk for Peace</h1>
+  <p style="font-size:1.18rem; color:#4a5568; max-width:700px; margin:0 auto 1.5rem auto;">Approximately two dozen Buddhist monks, led by Bhikkhu Pannakara, will embark on a 2,300-mile Walk for Peace from Fort Worth to Washington, D.C., beginning October 26, 2025, to promote national healing, unity, and compassion.</p>
+  <p style="font-size:1.18rem; color:#4a5568; max-width:700px; margin:0 auto 1.5rem auto;">Rooted in both spiritual devotion and civic purpose, the Walk for Peace seeks to remind Americans that peace is not a destination—it is a practice.</p>
+  <blockquote style="font-size:1.1rem; color:#1340A0; font-style:italic; margin:1.5rem auto; max-width:700px; border-left:4px solid #F5A721; padding-left:1.2rem;">“We walk not to protest, but to awaken the peace that already lives within each of us. The Walk for Peace is a simple yet meaningful reminder that unity and kindness begin within each of us and can radiate outward to families, communities, and society as a whole.”</blockquote>
+  <div style="display:flex; justify-content:center; gap:2.5rem; margin:2.5rem 0 1.5rem 0; flex-wrap:wrap;">
+    <div style="background:#fff; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,0.07); padding:2.2rem 1.5rem; min-width:180px; text-align:center;">
+      <div style="font-size:2.2rem; color:#8B5C2A; font-weight:900;">10+</div>
+      <div style="font-size:1.1rem; color:#4a5568;">Monks</div>
+    </div>
+    <div style="background:#fff; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,0.07); padding:2.2rem 1.5rem; min-width:180px; text-align:center;">
+      <div style="font-size:2.2rem; color:#8B5C2A; font-weight:900;">108+</div>
+      <div style="font-size:1.1rem; color:#4a5568;">Days</div>
+    </div>
+    <div style="background:#fff; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,0.07); padding:2.2rem 1.5rem; min-width:180px; text-align:center;">
+      <div style="font-size:2.2rem; color:#8B5C2A; font-weight:900;">10</div>
+      <div style="font-size:1.1rem; color:#4a5568;">State Capitals</div>
+    </div>
+    <div style="background:#fff; border-radius:14px; box-shadow:0 4px 18px rgba(0,0,0,0.07); padding:2.2rem 1.5rem; min-width:180px; text-align:center;">
+      <div style="font-size:2.2rem; color:#8B5C2A; font-weight:900;">2,300+</div>
+      <div style="font-size:1.1rem; color:#4a5568;">Miles</div>
+    </div>
+  </div>
+  <div style="margin:2.5rem 0 1.5rem 0;">
+    <img src="images/Dhammacetiya Temple.jpg" alt="Dhammacetiya Temple" style="max-width:420px; width:100%; border-radius:14px; box-shadow:0 6px 24px rgba(0,0,0,.11); margin:0 auto; display:block;">
+    <div style="font-size:1.08rem; color:#3a3a3a; line-height:1.7; margin-top:1.1rem;">THE ANCIENT SACRED BUDDHIST SCRIPTURE STUPAS (DHAMMACETIYA)</div>
+  </div>
+  <div style="margin:2.5rem 0 1.5rem 0;">
+    <a href="https://www.facebook.com/sbsstupas/" target="_blank" style="margin-right:1.2rem; color:#4267B2; font-weight:700;">Follow on Facebook</a>
+    <a href="https://www.youtube.com/@SBSSTUPAS" target="_blank" style="color:#FF0000; font-weight:700;">Follow on YouTube</a>
+  </div>
+  <div style="margin:2.5rem 0 1.5rem 0; font-size:1.08rem; color:#3a3a3a;">Contact: <a href="tel:972-859-0086" style="color:#1340A0;">(972) 859-0086</a> | <a href="mailto:info@dhammacetiya.com" style="color:#1340A0;">info@dhammacetiya.com</a><br>4725 East Rosedale Street, Fort Worth, Texas 76105 - USA</div>
+
+  <!-- Leadership Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#f3f6fa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">Meet the Monks & Leadership</h2>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">The Walk for Peace is led by Bhikkhu Pannakara and a dedicated group of Buddhist monks from various traditions. Their leadership, wisdom, and compassion inspire all participants and supporters. Each monk brings unique experiences and teachings, united by a shared vision of peace and harmony.</p>
+    <ul style="margin-top:1.2rem; margin-bottom:0; padding-left:1.2rem; color:#1340A0; font-size:1.05rem;">
+      <li>Bhikkhu Pannakara – Chief Monk & Walk Leader</li>
+      <li>Venerable Phra Supalak – Photographer & Reflection Author</li>
+      <li>Rev. Nguyen – Vice President, Temple</li>
+      <li>And many more devoted monks and lay leaders</li>
+    </ul>
+  </div>
+
+  <!-- Journey Map/Timeline Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#fffbe7; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">Journey Highlights</h2>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">The 2,300-mile route from Fort Worth, Texas to Washington, D.C. passes through 10 state capitals and countless communities. Each stop is an opportunity for connection, learning, and service.</p>
+    <ul style="margin-top:1.2rem; margin-bottom:0; padding-left:1.2rem; color:#1340A0; font-size:1.05rem;">
+      <li>Fort Worth, TX (Start)</li>
+      <li>Little Rock, AR</li>
+      <li>Nashville, TN</li>
+      <li>Frankfort, KY</li>
+      <li>Charleston, WV</li>
+      <li>Richmond, VA</li>
+      <li>Raleigh, NC</li>
+      <li>Columbia, SC</li>
+      <li>Atlanta, GA</li>
+      <li>Washington, D.C. (Finish)</li>
+    </ul>
+    <div style="margin-top:1.5rem; text-align:center;">
+      <img src="images/walk-route-map.jpg" alt="Walk for Peace Route Map" style="max-width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+    </div>
+  </div>
+
+  <!-- Quotes/Testimonies Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#f3f6fa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">Voices from the Walk</h2>
+    <blockquote style="font-size:1.1rem; color:#1340A0; font-style:italic; margin:1.5rem 0; border-left:4px solid #F5A721; padding-left:1.2rem;">“The Walk for Peace is a journey of the heart. Every step is a prayer for unity and healing.”<br><span style="font-size:.98rem; color:#8B5C2A;">– Bhikkhu Pannakara</span></blockquote>
+    <blockquote style="font-size:1.1rem; color:#1340A0; font-style:italic; margin:1.5rem 0; border-left:4px solid #F5A721; padding-left:1.2rem;">“I have witnessed the kindness of strangers and the power of community along this path.”<br><span style="font-size:.98rem; color:#8B5C2A;">– Venerable Phra Supalak</span></blockquote>
+    <blockquote style="font-size:1.1rem; color:#1340A0; font-style:italic; margin:1.5rem 0; border-left:4px solid #F5A721; padding-left:1.2rem;">“Aloka’s gentle presence reminds us that peace is possible, one step and one paw at a time.”<br><span style="font-size:.98rem; color:#8B5C2A;">– Rev. Nguyen</span></blockquote>
+  </div>
+
+  <!-- ALOKA THE PEACEFUL WALK DOG SECTION (Enhanced) -->
+  <section class="religion-section" style="background:linear-gradient(120deg,#fffbe7 0%,#f7e9d2 100%); border: 3px solid #F5A721; border-radius: 18px; box-shadow: 0 8px 32px rgba(251, 186, 3, 0.13); margin: 2.5rem auto; max-width: 1100px;">
+    <div class="religion-inner" style="flex-direction:row-reverse; align-items:center;">
+      <div class="religion-img">
+        <img src="https://people.com/thmb/jLVBqNzpM5tu1-wAfR7P96WknX8=/4000x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(369x0:371x2):format(webp)/aloka-the-peace-dog-1-010625-4a91c1ca98e1477b9b93b3395c20348b.jpg" alt="Aloka the Peaceful Walk Dog" style="max-width:520px; height:420px; object-fit:cover; border: 4px solid #8B5C2A; border-radius: 14px; background: #fff;">
+      </div>
+      <div class="religion-content" style="padding: 2rem 2rem 2rem 0;">
+        <h2 style="color:#F5A721; font-size:2.2rem; font-family:'Merriweather',serif; margin-bottom:1.1rem;">Aloka: The Peaceful Walk Dog</h2>
+        <p style="font-size:1.13rem; color:#4a2c29; margin-bottom:.8rem;">As the monks and walkers journey through towns and along rural highways, their presence draws curiosity, kindness, and sometimes silent reverence from onlookers. Among the group, one gentle soul has captured hearts both on the road and online: <b>Aloka, the peaceful walk dog.</b></p>
+        <p style="font-size:1.13rem; color:#4a2c29; margin-bottom:.8rem;">Aloka, a medium-sized dog with an alert yet gentle presence, walks when he can, rests when he needs to, and often leads the way. His calm demeanor mirrors the monks’ intention, making him feel less like a mascot and more like a fellow pilgrim. Aloka’s journey is followed by many on social media, where his quiet companionship and resilience inspire people far beyond the roadside.</p>
+        <p style="font-size:1.13rem; color:#4a2c29; margin-bottom:.8rem; font-style:italic; border-left:4px solid #F5A721; padding-left:1rem;">In the words of Rev. Nguyen, vice president of the temple, the walk is “a journey to bring blessings to countless lives in a world filled with uncertainty and restlessness.” Aloka’s steady steps remind us all of the power of presence, peace, and compassion—one paw at a time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media & News Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#fffbe7; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">Media & News</h2>
+    <ul style="margin-top:1.2rem; margin-bottom:0; padding-left:1.2rem; color:#1340A0; font-size:1.05rem;">
+      <li><a href="https://dhammacetiya.com/walk-for-peace-official-song-feat-tnl/" target="_blank" style="color:#1340A0;">Official Song: Walk for Peace (feat. T.N.L)</a></li>
+      <li><a href="https://dhammacetiya.com/madame-anna-hakobyan-visit-huong-dao-temple/" target="_blank" style="color:#1340A0;">1st Lady Armenia visited Huong Dao temple</a></li>
+      <li><a href="https://dhammacetiya.com/walk-for-peace-reflection-venerable-phra-supalak/" target="_blank" style="color:#1340A0;">Reflection from Venerable Phra Supalak</a></li>
+      <li><a href="https://dhammacetiya.com/walk-for-peace-a-special-tribute-to-our-volunteers/" target="_blank" style="color:#1340A0;">A Special Tribute to Our Volunteers</a></li>
+      <li><a href="https://dhammacetiya.com/walk-for-peace-day-homecoming-ceremony-2026/" target="_blank" style="color:#1340A0;">Homecoming Ceremony in Fort Worth, TX</a></li>
+    </ul>
+  </div>
+
+  <!-- Volunteer & Community Involvement Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#f3f6fa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">Join & Support the Walk</h2>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">The Walk for Peace thrives on the generosity and involvement of volunteers and supporters. Whether you wish to walk, host, provide meals, or simply cheer us on, your participation is welcome and valued.</p>
+    <ul style="margin-top:1.2rem; margin-bottom:0; padding-left:1.2rem; color:#1340A0; font-size:1.05rem;">
+      <li>Volunteer as a walker or support crew</li>
+      <li>Host monks and walkers in your community</li>
+      <li>Donate food, water, or supplies</li>
+      <li>Share our story on social media</li>
+      <li>Attend public events and ceremonies</li>
+    </ul>
+    <div style="margin-top:1.5rem;">
+      <a href="join.html" class="nav-btn" style="background:#8B5C2A; color:#fff; padding:.7rem 2rem; border-radius:4px; font-size:1.1rem; font-weight:800;">Join the Walk</a>
+    </div>
+  </div>
+
+
+  <!-- Legacy & Vision Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#f3f6fa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">Legacy & Vision</h2>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">The Walk for Peace is more than a journey—it is a living legacy of compassion, unity, and hope. Our vision is to inspire future generations to walk the path of peace, to build bridges across cultures, and to honor the sacred teachings of the Buddha through service and love.</p>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">We invite you to join us in this ongoing mission, to carry the light of peace into your own life and community, and to help create a world where all beings may be happy, safe, and free.</p>
+  </div>
+
+  <!-- Additional Details Section -->
+  <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#fffbe7; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
+    <h2 style="color:#8B5C2A; font-family:'Merriweather',serif; font-size:2rem; margin-bottom:1.2rem;">More About the Walk for Peace</h2>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">The Walk for Peace is a unique pilgrimage that brings together monks from diverse Buddhist traditions, lay supporters, and peace advocates. The journey is not only a test of physical endurance but also a profound spiritual practice, emphasizing mindfulness, compassion, and the interconnectedness of all beings.</p>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">Each day, the monks rise before dawn, gather for meditation and chanting, and then set out on foot, walking in silence and harmony. Along the way, they visit temples, schools, and community centers, sharing teachings of peace and hope. The walk is supported by volunteers who provide food, shelter, and encouragement, creating a moving community of kindness.</p>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">The Dhammacetiya Stupa, featured in our journey, is a symbol of the Buddha’s teachings and a beacon of spiritual inspiration. Stupas are sacred monuments that enshrine relics and scriptures, serving as places of pilgrimage and meditation for Buddhists worldwide. The presence of the stupa on this walk reminds us of the timeless values of wisdom, compassion, and peace.</p>
+    <p style="font-size:1.08rem; color:#3a3a3a; margin-bottom:1.1rem;">Through this walk, we hope to inspire individuals and communities to cultivate peace within themselves and extend it to the world. The impact of the Walk for Peace is felt not only in the miles traveled but in the hearts touched, the friendships formed, and the seeds of harmony sown along the way.</p>
+    <ul style="margin-top:1.5rem; margin-bottom:0; padding-left:1.2rem; color:#1340A0; font-size:1.05rem;">
+      <li>Daily meditation and chanting sessions open to the public</li>
+      <li>Visits to historic temples and cultural landmarks</li>
+      <li>Community service projects and interfaith dialogues</li>
+      <li>Workshops on mindfulness, non-violence, and compassion</li>
+      <li>Opportunities for volunteers to join and support the walk</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+<!-- ACHIEVEMENTS SECTION -->
+<section class="achievements-section">
+  <div class="achievements-inner">
+    <div class="achievements-title">Our Achievements</div>
+    <div class="achievements-grid">
+      <div class="achievement-card">
+        <img src="images/Lotus Peace Pagoda.jpg" alt="Lotus Peace Pagoda">
+        <h3>28+ Countries Reached</h3>
+        <p>Walk for Peace has united walkers and communities across more than 28 countries, spreading the message of non-violence and compassion worldwide.</p>
+      </div>
+      <div class="achievement-card">
+        <img src="images/Sangha Community Center.jpg" alt="Sangha Community Center">
+        <h3>Community Service</h3>
+        <p>Thousands of hours dedicated to community service, education, and humanitarian aid through our Sangha Community Centers.</p>
+      </div>
+      <div class="achievement-card">
+        <img src="images/Bodhi Monastery.jpg" alt="Bodhi Monastery">
+        <h3>Temple Restoration</h3>
+        <p>Supported the restoration and preservation of historic temples, ensuring the Dharma continues to inspire future generations.</p>
+      </div>
+      <div class="achievement-card">
+        <img src="images/events.jpg" alt="Peace Events">
+        <h3>Peace Events</h3>
+        <p>Organized hundreds of peace walks, meditation retreats, and interfaith dialogues to foster understanding and unity.</p>
+      </div>
+      <div class="achievement-card">
+        <img src="images/stats.jpg" alt="Global Impact">
+        <h3>Global Impact</h3>
+        <p>Over 100,000 participants have joined our initiatives, making a tangible difference in communities worldwide.</p>
+      </div>
+      <div class="achievement-card">
+        <img src="images/donate.jpg" alt="Charity Support">
+        <h3>Charity Support</h3>
+        <p>Millions raised for humanitarian relief, education, and temple construction through generous donations and partnerships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand"><div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div><p>A nonprofit Buddhist foundation walking together for a peaceful world.</p></div>
+    <div class="ft-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+    <div class="ft-col"><h4>Get Involved</h4><ul><li><a href="join.html">Join the Walk</a></li><li><a href="#">Volunteer</a></li></ul></div>
+    <div class="ft-col"><h4>Foundation</h4><ul><li><a href="#">Annual Report</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+  </div>
+  <div class="ft-bottom"><span>© 2026 Walk for Peace Foundation · 501(c)(3)</span><span>🕊 May all beings be happy</span></div>
+</footer>
+</body>
+</html>

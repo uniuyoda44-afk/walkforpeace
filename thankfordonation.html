@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Walk for Peace — Thank You for Your Support</title>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Open Sans',sans-serif;overflow:hidden;}
+a{text-decoration:none;color:inherit;}button{cursor:pointer;font-family:inherit;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:54px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 2rem;}
+.nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
+.nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;color:#1a1a1a;}
+.nav-logo-text em{font-style:italic;color:#1B56E8;}
+.nav-links{display:flex;align-items:center;gap:1.6rem;list-style:none;margin-right:1.2rem;}
+.nav-links a{font-size:.8rem;color:#555;text-decoration:none;}
+.nav-links a:hover{color:#1B56E8;}
+.nav-btn{background:#1B56E8;color:#fff;border:none;border-radius:4px;padding:.38rem 1.05rem;font-size:.78rem;font-weight:700;cursor:pointer;font-family:inherit;}
+
+/* ── FULL PAGE: sunny meadow/field photo with dog and monks
+   Prototype: bright sunny outdoor scene (dog visible lower right, monks behind)
+   Right side of screen: white text "Thank You / for Your Support!" + sub + blue "Back to Home" button
+   Bottom right: Walk for Peace circular badge/logo */
+.page{
+  position:relative;height:100vh;
+  display:flex;align-items:center;justify-content:flex-end;
+  overflow:hidden;
+}
+/* Background: use a bright sunny meadow/outdoor scene */
+.bg{
+  position:absolute;inset:0;
+  background:url('images/thank_donate.jpg') center/cover;
+  /* Sunny golden field */
+}
+.bg-alt{
+  position:absolute;inset:0;
+  background:url('images/thank_donate.jpg') center/cover;
+}
+/* Use gradient overlay to give bright sky-blue feel */
+.bg-sky{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,
+    rgba(180,225,255,.35) 0%,
+    rgba(150,210,250,.22) 40%,
+    rgba(180,230,140,.15) 70%,
+    rgba(220,245,160,.1) 100%
+  );
+}
+/* Darken slightly on right for text readability */
+.bg-right{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 30%,rgba(20,60,140,.38) 70%,rgba(15,50,130,.48) 100%);
+}
+
+/* Flying doves */
+.dove-1{position:absolute;top:14%;right:30%;font-size:2.5rem;opacity:.5;animation:dv 5s ease-in-out infinite;}
+.dove-2{position:absolute;top:10%;right:18%;font-size:1.9rem;opacity:.4;animation:dv 4.2s 1.2s ease-in-out infinite;}
+@keyframes dv{0%,100%{transform:translateY(0)rotate(-5deg)}50%{transform:translateY(-18px)rotate(5deg)}}
+
+/* Content panel right side */
+.content{
+  position:relative;z-index:2;
+  width:42%;min-width:380px;
+  padding:4rem 4rem 4rem 2rem;
+  display:flex;flex-direction:column;justify-content:center;
+  height:100%;
+  animation:up .8s ease both;
+}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+.content h1{
+  font-family:'Merriweather',serif;
+  font-size:clamp(2rem,4vw,3rem);
+  color:#fff;font-weight:700;line-height:1.2;
+  margin-bottom:.9rem;
+  text-shadow:0 2px 18px rgba(0,0,0,.45);
+}
+.content p{
+  font-size:.9rem;color:rgba(255,255,255,.88);
+  line-height:1.7;margin-bottom:2rem;
+  text-shadow:0 1px 8px rgba(0,0,0,.3);
+  max-width:340px;
+}
+.btn-back{
+  display:inline-block;
+  background:#1B56E8;color:#fff;border:none;border-radius:5px;
+  padding:.65rem 1.7rem;font-size:.86rem;font-weight:700;cursor:pointer;
+  transition:all .2s;font-family:'Open Sans',sans-serif;
+  align-self:flex-start;
+}
+.btn-back:hover{background:#1340C0;transform:translateY(-1px);box-shadow:0 4px 16px rgba(27,86,232,.45);}
+
+/* Foundation badge — bottom right */
+.badge{
+  position:absolute;bottom:2.2rem;right:2.5rem;z-index:3;
+  width:85px;height:85px;border-radius:50%;
+  background:rgba(27,86,232,.85);
+  border:3px solid rgba(255,255,255,.55);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 5px 20px rgba(0,0,0,.28);
+  text-align:center;
+}
+.badge-icon{font-size:1.4rem;line-height:1;}
+.badge-text{
+  font-size:.46rem;color:rgba(255,255,255,.9);
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-top:.18rem;line-height:1.35;font-weight:700;
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🕊</div>
+    <span class="nav-logo-text">Walk <em>for</em> Peace</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="nav-btn" onclick="location.href='join.html'">Join the Walk</button>
+</nav>
+
+<div class="page">
+  <div class="bg-alt"></div>
+  <div class="bg-sky"></div>
+  <div class="bg-right"></div>
+  <div class="dove-1">🕊️</div>
+  <div class="dove-2">🕊️</div>
+
+  <div class="content">
+    <h1>Thank You<br>for Your Support!</h1>
+    <p>Your donation helps promote peace initiatives across 28 countries. The monks of Walk for Peace will dedicate their morning prayers in your honor.</p>
+    <button class="btn-back" onclick="location.href='index.html'">Back to Home</button>
+  </div>
+
+  <!-- Foundation badge bottom right -->
+  <div class="badge">
+    <div class="badge-icon">🕊</div>
+    <div class="badge-text">Walk<br>for<br>Peace</div>
+  </div>
+</div>
+
+</body>
+</html>
