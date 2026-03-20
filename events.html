@@ -11,7 +11,26 @@ body{font-family:'Open Sans',sans-serif;color:#1a1a1a;background:#fff;overflow-x
 img{display:block;}
 a{text-decoration:none;color:inherit;}
 button{cursor:pointer;font-family:inherit;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;flex-direction:column;align-items:stretch;}
+.nav-banner{
+  background:linear-gradient(110deg,rgba(225,244,255,0.95),rgba(233,250,243,0.95));
+  padding:.65rem 1rem;
+  text-align:center;
+  font-size:.96rem;
+  color:#0f1a2a;
+  border-bottom:1px solid rgba(0,0,0,.09);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.75rem;
+  font-weight:600;
+}
+.nav-banner span{display:inline-block;line-height:1.3;}
+.nav-main{display:flex;align-items:center;padding:0 0.5rem;gap:0;height:88px;}
+.site-banner{background:#f4fbfa;color:#1a1a1a;text-align:center;padding:.7rem 1rem;font-size:.95rem;border-bottom:1px solid rgba(0,0,0,.08);}
+.site-banner-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:.25rem;}
+.site-banner-title{font-weight:700;}
+
 .nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
 .nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
 .nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;font-weight:400;color:#1a1a1a;}
@@ -24,104 +43,236 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#ff
 .nav-btn:hover{background:#1340C0;}
 .nav-btn.yellow{background:#F5A721;}
 .nav-btn.yellow:hover{background:#D99010;}
+
+/* ── EVENTS HERO ── */
+.events-hero{
+  position: relative;
+  height: 45vh;
+  min-height: 260px;
+  background: linear-gradient(120deg, #edf4fb 0%, #f6fbf8 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1a1a1a;
+  text-align:center;
+  overflow:hidden;
+}
+.events-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.18) 0, rgba(255,255,255,0.18) 1px, transparent 1px, transparent 14px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,0.18) 0, rgba(255,255,255,0.18) 1px, transparent 1px, transparent 14px),
+    radial-gradient(circle at 22% 35%, rgba(245, 162, 33, 0.25), transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(21, 122, 184, 0.22), transparent 58%);
+  z-index:0;
+}
+.events-hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,0.3);
+  z-index:0;
+}
+.events-hero-text{position:relative; z-index:1; }
+.events-hero-text h1{font-size:clamp(2.2rem,6vw,3.5rem); margin-bottom:0.5rem; color:#1340A0;}
+.events-hero-text p{font-size:1.1rem; color:#4a5568;}
+
+/* tabs */
+.tabs{display:flex;justify-content:center;gap:1rem;margin:2rem 0;}
+.tab-btn{padding:.8rem 1.6rem;font-size:1rem;border:none;background:#eee;border-radius:4px;cursor:pointer;transition:background .2s;}
+.tab-btn.active, .tab-btn:hover{background:#1340A0;color:#fff;}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* event cards */
+.events-inner{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.2rem;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 0.6rem;
+}
+@media (min-width: 960px) {
+  .events-inner {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media (min-width: 1300px) {
+  .events-inner {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+.evt-card{
+  background:#fff;
+  border:1px solid #e0e6ef;
+  border-radius:8px;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  transition:transform .2s,box-shadow .2s;
+}
+.evt-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.1);}
+.evt-thumb img{width:100%;height:180px;object-fit:cover;}
+.evt-info{padding:1rem;flex:1;}
+.evt-title{font-size:1.25rem;font-weight:700;color:#1340A0;margin-bottom:.5rem;}
+.evt-meta{font-size:.9rem;color:#555;}
+.btn-reg{margin:1rem;padding:.75rem; border:none; background:#F5A721;color:#fff;border-radius:4px;font-weight:700;cursor:pointer;transition:background .2s;}
+.btn-reg:hover{background:#d99010;}
+
+/* recent post cards */
+.recent-posts a div{transition:transform .2s,box-shadow .2s;}
+.recent-posts a div:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(0,0,0,0.12);}
+
+/* Global footer styles */
+footer{background:#15192b;color:rgba(255,255,255,.75);padding:2rem 2.5rem 1rem;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.8rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.8rem;}
+.ft-logo-text{font-family:'Merriweather',serif;font-size:.9rem;color:#fff;margin-bottom:.5rem;}
+.ft-logo-text em{font-style:italic;color:#F5A721;}
+.ft-brand p{font-size:.76rem;line-height:1.65;max-width:220px;}
+.ft-col h4{color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.65rem;}
+.ft-col ul{list-style:none;padding:0;margin:0;}
+.ft-col li{margin-bottom:.38rem;}
+.ft-col a{font-size:.76rem;color:rgba(255,255,255,.48);transition:color .18s;}
+.ft-col a:hover{color:#F5A721;}
+.ft-bottom{display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3);flex-wrap:wrap;gap:.5rem;}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
-    <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Dhammacetiya</span>
+  <div class="nav-banner">
+    <span>🕊 Walk for Peace</span>
+    <span>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</span>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="events.html" class="on">Events</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
+  <div class="nav-main">
+    <div class="nav-logo">
+      <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
+      <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Walk for Peace Revisit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html" class="on">Events</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
+  </div>
 </nav>
 
 <!-- HERO -->
-<div class="events-hero">
-  <div class="events-hero-bg"></div>
-  <div class="events-hero-overlay"></div>
+<section class="events-hero">
   <div class="events-hero-text">
     <h1>Upcoming Events</h1>
     <p>Walk with us — join a peace walk near you</p>
   </div>
-</div>
+</section>
 
 <!-- EVENTS LIST -->
-<div style="margin-top:110px;">
+<div style="margin-top:120px;">
   <div class="events-body">
-    <div class="events-inner">
-      <h2>Upcoming Events</h2>
-
-      <div class="evt-card">
-        <div class="evt-thumb">
-          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&q=80" alt="">
+    <!-- featured news -->
+    <section class="featured-post" style="max-width:1100px;margin:0 auto;padding:1.5rem 0.8rem;">
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
+        <h2 style="font-family:'Merriweather',serif;font-size:2.1rem;color:#1340A0;margin:0;">Latest News</h2>
+        <div style="display:flex;gap:1rem;font-size:.95rem;color:#6b7280;">
+          <span>Share:</span>
+          <a href="https://www.facebook.com/sharer.php?u=https://dhammacetiya.com/international-vesak-2026-offering-opportunities/" target="_blank" rel="noopener noreferrer" style="color:#1340A0;text-decoration:none;">Facebook</a>
+          <a href="https://twitter.com/share?url=https://dhammacetiya.com/international-vesak-2026-offering-opportunities/" target="_blank" rel="noopener noreferrer" style="color:#1340A0;text-decoration:none;">Twitter</a>
+          <a href="mailto:?subject=International%20Vesak%202026%20–%20Offering%20opportunities&body=https://dhammacetiya.com/international-vesak-2026-offering-opportunities/" style="color:#1340A0;text-decoration:none;">Email</a>
         </div>
-        <div class="evt-info">
-          <div class="evt-title">Peace Walk in Central Park</div>
-          <div class="evt-meta">📅 May 15, 2022 &nbsp;·&nbsp; 📍 New York City</div>
-        </div>
-        <button class="btn-reg" onclick="location.href='join.html'">Register</button>
       </div>
-
-      <div class="evt-card">
-        <div class="evt-thumb">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=200&q=80" alt="">
+      <div style="display:grid;grid-template-columns:1fr;gap:1.8rem;">
+        <div style="position:relative;overflow:hidden;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.12);">
+          <img src="https://dhammacetiya.com/wp-content/uploads/2026/03/Vesak2026_contribution_E2.jpg" alt="Vesak 2026 donation items" style="width:100%;height:auto;display:block;object-fit:cover;" />
         </div>
-        <div class="evt-info">
-          <div class="evt-title">Community Peace Walk</div>
-          <div class="evt-meta">📅 Jun 10, 2023 &nbsp;·&nbsp; 📍 Los Angeles</div>
+        <div style="background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.1);padding:1.9rem;">
+          <h2 style="font-family:'Merriweather',serif;font-size:2rem;color:#1340A0;margin-bottom:1rem;">International Vesak 2026 – Offering opportunities</h2>
+          <div style="font-size:.95rem;color:#6b7280;margin-bottom:1.1rem;">March 6, 2026</div>
+          <p style="font-size:1.05rem;color:#4a5568;line-height:1.7;margin-bottom:1.6rem;">🪷 Call for Donations – International Vesak 2026. Hương Đạo Buddhist Temple respectfully invites devotees and friends to support the International Vesak Celebration (May 2–10, 2026) in Fort Worth, Texas. Your generosity will help support the Saṅgha, the Veneration of the Sacred Buddha Relics, Vesak ceremonies, and many more activities.</p>
+          <a href="https://dhammacetiya.com/international-vesak-2026-offering-opportunities/" style="display:inline-block;background:#8B5C2A;color:#fff;padding:.75rem 1.9rem;border-radius:8px;font-weight:700;font-size:1rem;text-decoration:none;">Read the full announcement</a>
         </div>
-        <button class="btn-reg" onclick="location.href='join.html'">Register</button>
       </div>
+    </section>
 
-      <div class="evt-card">
-        <div class="evt-thumb">
-          <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=200&q=80" alt="">
+    <!-- recent posts grid -->
+    <section class="recent-posts" style="background:#f8f6f2;padding:2.5rem 0;">
+      <div style="max-width:1100px;margin:0 auto;text-align:center;padding:0 0.8rem;">
+        <h2 style="font-family:'Merriweather',serif;font-size:2.1rem;color:#8B5C2A;font-weight:800;margin-bottom:1.2rem;">Recent Posts</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem;">
+          <!-- Post 1 -->
+          <a href="https://dhammacetiya.com/international-vesak-2026-offering-opportunities/" style="text-decoration:none;color:inherit;">
+            <div style="background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);overflow:hidden;transition:transform .2s;">
+              <img src="https://dhammacetiya.com/wp-content/uploads/2026/03/Vesak2026_contribution_E2-300x226.jpg" alt="Vesak 2026 donation items" style="width:100%;height:auto;display:block;object-fit:cover;" />
+              <div style="padding:1.3rem;">
+                <h3 style="font-size:1.2rem;color:#1340A0;margin-bottom:.6rem;">International Vesak 2026 – Offering opportunities</h3>
+                <div style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">March 6, 2026</div>
+              </div>
+            </div>
+          </a>
+          <!-- Post 2 -->
+          <a href="https://dhammacetiya.com/international-vesak-2026-letter-of-annoucement/" style="text-decoration:none;color:inherit;">
+            <div style="background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);overflow:hidden;transition:transform .2s;">
+              <img src="https://dhammacetiya.com/wp-content/uploads/2026/03/Letter_of_annoucement_e1-232x300.jpg" alt="Vesak 2026 letter of annoucement" style="width:100%;height:auto;display:block;object-fit:cover;" />
+              <div style="padding:1.3rem;">
+                <h3 style="font-size:1.2rem;color:#1340A0;margin-bottom:.6rem;">International Vesak 2026 – Letter of Announcement</h3>
+                <div style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">March 1, 2026</div>
+              </div>
+            </div>
+          </a>
+          <!-- Post 3 -->
+          <a href="https://dhammacetiya.com/international-vesak-2026-volunteer-opportunities/" style="text-decoration:none;color:inherit;">
+            <div style="background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);overflow:hidden;transition:transform .2s;">
+              <img src="https://dhammacetiya.com/wp-content/uploads/2026/02/Vesak2026_volunteer_e-200x300.jpg" alt="Vesak 2026 volunteer" style="width:100%;height:auto;display:block;object-fit:cover;" />
+              <div style="padding:1.3rem;">
+                <h3 style="font-size:1.2rem;color:#1340A0;margin-bottom:.6rem;">International Vesak 2026 – Volunteer opportunities</h3>
+                <div style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">February 27, 2026</div>
+              </div>
+            </div>
+          </a>
+          <!-- Post 4 -->
+          <a href="https://dhammacetiya.com/international-vesak-2026-invitation/" style="text-decoration:none;color:inherit;">
+            <div style="background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);overflow:hidden;transition:transform .2s;">
+              <img src="https://dhammacetiya.com/wp-content/uploads/2026/02/poster1-300x225.jpg" alt="Vesak 2026 invitation" style="width:100%;height:auto;display:block;object-fit:cover;" />
+              <div style="padding:1.3rem;">
+                <h3 style="font-size:1.2rem;color:#1340A0;margin-bottom:.6rem;">International Vesak 2026 – Invitation</h3>
+                <div style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">February 25, 2026</div>
+              </div>
+            </div>
+          </a>
+          <!-- Post 5 -->
+          <a href="https://dhammacetiya.com/light-offering-to-buddha-relics-vesak-2026/" style="text-decoration:none;color:inherit;">
+            <div style="background:#fff;border-radius:14px;box-shadow:0 10px 25px rgba(0,0,0,0.08);overflow:hidden;transition:transform .2s;">
+              <img src="https://dhammacetiya.com/wp-content/uploads/2025/09/Budda_Relics_Vesak_2026_Light_offering_e_s-285x300.jpg" alt="Light Offering to Buddha Relics, Vesak 2026" style="width:100%;height:auto;display:block;object-fit:cover;" />
+              <div style="padding:1.3rem;">
+                <h3 style="font-size:1.2rem;color:#1340A0;margin-bottom:.6rem;">Light Offering to Buddha Relics, Vesak 2026</h3>
+                <div style="font-size:.9rem;color:#6b7280;margin-bottom:1rem;">September 17, 2025</div>
+              </div>
+            </div>
+          </a>
         </div>
-        <div class="evt-info">
-          <div class="evt-title">Songkran Temple Walk</div>
-          <div class="evt-meta">📅 Apr 13, 2026 &nbsp;·&nbsp; 📍 Chiang Mai, Thailand</div>
-        </div>
-        <button class="btn-reg" onclick="location.href='join.html'">Register</button>
       </div>
-
-      <div class="evt-card">
-        <div class="evt-thumb">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=200&q=80" alt="">
-        </div>
-        <div class="evt-info">
-          <div class="evt-title">Silent Meditation Retreat — Bali</div>
-          <div class="evt-meta">📅 Jul 7–14, 2026 &nbsp;·&nbsp; 📍 Ubud, Bali</div>
-        </div>
-        <button class="btn-reg" onclick="location.href='join.html'">Register</button>
-      </div>
-
-      <div class="evt-card">
-        <div class="evt-thumb">
-          <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&q=80" alt="">
-        </div>
-        <div class="evt-info">
-          <div class="evt-title">Vesak Day Peace Walk — Colombo</div>
-          <div class="evt-meta">📅 May 23, 2026 &nbsp;·&nbsp; 📍 Colombo, Sri Lanka</div>
-        </div>
-        <button class="btn-reg" onclick="location.href='join.html'">Register</button>
-      </div>
-
-    </div>
+    </section>
   </div>
 </div>
 
 <footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div>
+      <p>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</p>
+    </div>
+    <div class="ft-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+    <div class="ft-col"><h4>Get Involved</h4><ul><li><a href="join.html">Join the Walk</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Partner</a></li></ul></div>
+    <div class="ft-col"><h4>Foundation</h4><ul><li><a href="#">Annual Report</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
   <div class="ft-bottom">
-    <span>© 2026 Walk for Peace Foundation · 501(c)(3)</span>
+    <span>© 2026 Walk for Peace Foundation · 501(c)(3) Nonprofit</span>
     <span>🕊 May all beings be happy</span>
   </div>
 </footer>

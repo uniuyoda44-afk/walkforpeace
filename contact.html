@@ -11,7 +11,25 @@ body{font-family:'Open Sans',sans-serif;color:#1a1a1a;background:#fff;overflow-x
 img{display:block;}
 a{text-decoration:none;color:inherit;}
 button{cursor:pointer;font-family:inherit;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;flex-direction:column;align-items:stretch;}
+.nav-banner{
+  background:linear-gradient(110deg,rgba(225,244,255,0.95),rgba(233,250,243,0.95));
+  padding:.65rem 1rem;
+  text-align:center;
+  font-size:.96rem;
+  color:#0f1a2a;
+  border-bottom:1px solid rgba(0,0,0,.09);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.75rem;
+  font-weight:600;
+}
+.nav-banner span{display:inline-block;line-height:1.3;}
+.nav-main{display:flex;align-items:center;padding:0 0.5rem;gap:0;height:88px;}
+.site-banner{background:#f4fbfa;color:#1a1a1a;text-align:center;padding:.7rem 1rem;font-size:.95rem;border-bottom:1px solid rgba(0,0,0,.08);}
+.site-banner-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:.25rem;}
+.site-banner-title{font-weight:700;}
 .nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
 .nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
 .nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;font-weight:400;color:#1a1a1a;}
@@ -24,65 +42,110 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#ff
 .nav-btn:hover{background:#1340C0;}
 .nav-btn.yellow{background:#F5A721;}
 .nav-btn.yellow:hover{background:#D99010;}
+
+footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.8rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.8rem;}
+.ft-logo-text{font-family:'Merriweather',serif;font-size:.9rem;color:#fff;margin-bottom:.5rem;}
+.ft-logo-text em{font-style:italic;color:#F5A721;}
+.ft-brand p{font-size:.76rem;line-height:1.65;max-width:200px;}
+.ft-col h4{color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.65rem;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:.38rem;}
+.ft-col a{font-size:.76rem;color:rgba(255,255,255,.48);transition:color .18s;}
+.ft-col a:hover{color:#F5A721;}
+.ft-bottom{display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3);}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
-    <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Dhammacetiya</span>
+  <div class="nav-banner">
+    <span>🕊 Walk for Peace</span>
+    <span>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</span>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="contact.html" class="on">Contact</a></li>
-  </ul>
-  <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
+  <div class="nav-main">
+    <div class="nav-logo">
+      <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
+      <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Walk for Peace Revisit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html" class="on">Contact</a></li>
+    </ul>
+    <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
+  </div>
 </nav>
 
-<div style="margin-top:110px;">
-  <!-- Place your contact page content here -->
-  <div class="page">
-    <div class="page-bg"></div>
-    <div class="page-bg-dim"></div>
+<div style="margin-top:120px; padding:3.5rem 1rem; background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);">
+  <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:2.5rem;">
 
-    <!-- LEFT -->
-    <div class="left">
-      <h2>Get in Touch</h2>
-      <p>Adds interest in as aqwcd as support must intent to poncing pencils. We would love to hear from walkers, donors, volunteers, and partners.</p>
-      <div class="social-row">
-        <button class="soc fb">f</button>
-        <button class="soc tw">𝕏</button>
-        <button class="soc pt">P</button>
-        <button class="soc em">✉</button>
+    <div>
+      <h1 style="font-family:'Merriweather',serif; font-size:2.4rem; color:#1340A0; margin-bottom:1rem;">Contact Information</h1>
+      <p style="font-size:1.05rem; color:#4a5568; line-height:1.7; margin-bottom:1.5rem;">We’re here to help. Whether you’d like to join the walk, volunteer, donate, or simply ask a question, please reach out using the details below.</p>
+
+      <h2 style="font-family:'Merriweather',serif; font-size:1.6rem; color:#8B5C2A; margin-bottom:.6rem;">To make a financial contribution, please contact:</h2>
+      <p style="font-size:1rem; color:#4a5568; line-height:1.7; margin-bottom:1rem;"><strong>Huong Dao Temple</strong><br>
+      4717 E. Rosedale Street, Fort Worth, Texas 76105 – USA</p>
+
+      <p style="font-size:1rem; color:#4a5568; line-height:1.7; margin-bottom:1rem;"><strong>Phone:</strong> <a href="tel:+19728590086" style="color:#1340A0;"></a> | <strong>Email:</strong> <a href="mailto:info@dhammacetiya.com" style="color:#1340A0;"></a></p>
+
+      <p style="font-size:1rem; color:#4a5568; line-height:1.7; margin-bottom:1rem;"><strong>Make check payable to:</strong> Dhammacetiya or The Ancient Sacred Buddhist Scripture Stupas</p>
+
+      <p style="font-size:1rem; color:#4a5568; line-height:1.7; margin-bottom:1rem;"><strong>Please send to:</strong><br>
+      Huong Dao Temple<br>
+      Attn: SBSSTUPAS – Dhammacetiya<br>
+      4717 E. Rosedale Street, Fort Worth, Texas 76105 – USA</p>
+
+      <p style="font-size:1rem; color:#4a5568; line-height:1.7; margin-bottom:1rem;"><strong>Important:</strong> Please provide your name, address, email and phone number so we can send a written receipt.</p>
+
+      <p style="font-size:1rem; color:#4a5568; line-height:1.7; margin-bottom:1.5rem;"><strong>Online transfers (Zelle / Venmo / PayPal):</strong> send to <a href="" style="color:#1340A0;"></a></p>
+
+      <div style="font-size:1rem; color:#4a5568; line-height:1.7; background:#fff; border:1px solid rgba(0,0,0,.08); border-radius:16px; padding:1.3rem; box-shadow:0 10px 25px rgba(0,0,0,0.06);">
+        <strong>NOTE:</strong> If you prefer a quick message instead of email, please include your contact details so we can follow up with a receipt.</p>
       </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="right">
-      <div class="form-card">
-        <h3>Send a Message</h3>
-        <div class="f-group">
-          <label class="f-label">Your Name</label>
-          <input class="f-input" type="text" placeholder="">
-        </div>
-        <div class="f-group">
-          <label class="f-label">Email</label>
-          <input class="f-input" type="email" placeholder="">
-        </div>
-        <div class="f-group">
-          <label class="f-label">Message</label>
-          <textarea class="f-input" placeholder=""></textarea>
-        </div>
-        <button class="btn-send">Send Message</button>
-      </div>
+    <div style="background:#fff; border-radius:18px; box-shadow:0 18px 42px rgba(0,0,0,.12); padding:2.2rem;">
+      <h2 style="font-family:'Merriweather',serif; font-size:2rem; color:#1340A0; margin-bottom:1rem;">Send a Message</h2>
+      <form action="#" onsubmit="event.preventDefault(); alert('Thanks — we will be in touch soon!');" style="display:grid; gap:1.2rem;">
+        <label style="font-weight:700; font-size:0.95rem; color:#1a1a1a;">
+          Your Name
+          <input type="text" required style="width:100%; border:1px solid rgba(0,0,0,.14); border-radius:12px; padding:.9rem 1rem; margin-top:.4rem;" />
+        </label>
+        <label style="font-weight:700; font-size:0.95rem; color:#1a1a1a;">
+          Email
+          <input type="email" required style="width:100%; border:1px solid rgba(0,0,0,.14); border-radius:12px; padding:.9rem 1rem; margin-top:.4rem;" />
+        </label>
+        <label style="font-weight:700; font-size:0.95rem; color:#1a1a1a;">
+          Message
+          <textarea required style="width:100%; border:1px solid rgba(0,0,0,.14); border-radius:12px; padding:.9rem 1rem; margin-top:.4rem; min-height:140px;"></textarea>
+        </label>
+        <button type="submit" style="background:#8B5C2A; color:#fff; border:none; border-radius:12px; padding:.95rem 1.1rem; font-size:1.05rem; font-weight:700; cursor:pointer; transition:background .2s;">Send Message</button>
+      </form>
     </div>
+
   </div>
 </div>
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div>
+      <p>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</p>
+    </div>
+    <div class="ft-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+    <div class="ft-col"><h4>Get Involved</h4><ul><li><a href="join.html">Join the Walk</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Partner</a></li></ul></div>
+    <div class="ft-col"><h4>Foundation</h4><ul><li><a href="#">Annual Report</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Walk for Peace Foundation · 501(c)(3) Nonprofit</span>
+    <span>🕊 May all beings be happy</span>
+  </div>
+</footer>
 
 </body>
 </html>

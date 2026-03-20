@@ -11,7 +11,25 @@ body{font-family:'Open Sans',sans-serif;color:#1a1a1a;background:linear-gradient
 img{display:block;}
 a{text-decoration:none;color:inherit;}
 button{cursor:pointer;font-family:inherit;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;flex-direction:column;align-items:stretch;}
+.nav-banner{
+  background:linear-gradient(110deg,rgba(225,244,255,0.95),rgba(233,250,243,0.95));
+  padding:.65rem 1rem;
+  text-align:center;
+  font-size:.96rem;
+  color:#0f1a2a;
+  border-bottom:1px solid rgba(0,0,0,.09);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:.75rem;
+  font-weight:600;
+}
+.nav-banner span{display:inline-block;line-height:1.3;}
+.nav-main{display:flex;align-items:center;padding:0 0.5rem;gap:0;height:88px;}
+.site-banner{background:#f4fbfa;color:#1a1a1a;text-align:center;padding:.7rem 1rem;font-size:.95rem;border-bottom:1px solid rgba(0,0,0,.08);}
+.site-banner-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:.25rem;}
+.site-banner-title{font-weight:700;}
 .nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
 .nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
 .nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;font-weight:400;color:#1a1a1a;}
@@ -27,7 +45,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#ff
 
 /* HERO */
 .about-hero{
-  margin-top:100px;
+  margin-top:150px;
   min-height:420px;
   background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -206,25 +224,27 @@ footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">
-    <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
-    <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Dhammacetiya</span>
+  <div class="nav-main">
+    <div class="nav-logo">
+      <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
+      <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Walk for Peace Revisit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="on">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html" class="on">About</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
 </nav>
 
 
 
 
 <!-- PURPOSE OF THE WALK FOR PEACE (Cloned from dhammacetiya.com) -->
-<section class="about-hero" style="margin-top:100px; min-height:420px; background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3.5rem 1rem 2.5rem 1rem; position:relative;">
+<section class="about-hero" style="margin-top:70px; min-height:420px; background:linear-gradient(120deg,#f7e9d2 0%,#f3f6fa 100%); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3.5rem 1rem 2.5rem 1rem; position:relative;">
   <div class="dove-tr" style="font-size:2.5rem; position:absolute; top:2.2rem; right:7%; opacity:.18;">🕊</div>
   <h1 style="font-family:'Merriweather',serif; font-size:2.8rem; color:#8B5C2A; font-weight:900; margin-bottom:1.1rem; letter-spacing:.01em;">Purpose of the Walk for Peace</h1>
   <p style="font-size:1.18rem; color:#4a5568; max-width:700px; margin:0 auto 1.5rem auto;">Approximately two dozen Buddhist monks, led by Bhikkhu Pannakara, will embark on a 2,300-mile Walk for Peace from Fort Worth to Washington, D.C., beginning October 26, 2025, to promote national healing, unity, and compassion.</p>
@@ -256,7 +276,7 @@ footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;
     <a href="https://www.facebook.com/sbsstupas/" target="_blank" style="margin-right:1.2rem; color:#4267B2; font-weight:700;">Follow on Facebook</a>
     <a href="https://www.youtube.com/@SBSSTUPAS" target="_blank" style="color:#FF0000; font-weight:700;">Follow on YouTube</a>
   </div>
-  <div style="margin:2.5rem 0 1.5rem 0; font-size:1.08rem; color:#3a3a3a;">Contact: <a href="tel:972-859-0086" style="color:#1340A0;">(972) 859-0086</a> | <a href="mailto:info@dhammacetiya.com" style="color:#1340A0;">info@dhammacetiya.com</a><br>4725 East Rosedale Street, Fort Worth, Texas 76105 - USA</div>
+  <div style="margin:2.5rem 0 1.5rem 0; font-size:1.08rem; color:#3a3a3a;">Contact: <a href="tel:972-859-0086" style="color:#1340A0;">+12097024676</a> | <a href="mailto:bhikkhupannakarafoundation@out.com" style="color:#1340A0;">bhikkhupannakarafoundation@out.com</a><br>4725 East Rosedale Street, Fort Worth, Texas 76105 - USA</div>
 
   <!-- Leadership Section -->
   <div style="margin:3.5rem auto 2.5rem auto; max-width:800px; text-align:left; background:#f3f6fa; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,0.06); padding:2.5rem 2rem;">
@@ -411,12 +431,15 @@ footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;
 
 <footer>
   <div class="ft-grid">
-    <div class="ft-brand"><div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div><p>A nonprofit Buddhist foundation walking together for a peaceful world.</p></div>
+    <div class="ft-brand">
+      <div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div>
+      <p>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</p>
+    </div>
     <div class="ft-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="donate.html">Donate</a></li></ul></div>
-    <div class="ft-col"><h4>Get Involved</h4><ul><li><a href="join.html">Join the Walk</a></li><li><a href="#">Volunteer</a></li></ul></div>
-    <div class="ft-col"><h4>Foundation</h4><ul><li><a href="#">Annual Report</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div class="ft-col"><h4>Get Involved</h4><ul><li><a href="join.html">Join the Walk</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Partner</a></li></ul></div>
+    <div class="ft-col"><h4>Foundation</h4><ul><li><a href="#">Annual Report</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
   </div>
-  <div class="ft-bottom"><span>© 2025 Walk for Peace Foundation · 501(c)(3)</span><span>🕊 May all beings be happy</span></div>
+  <div class="ft-bottom"><span>© 2026 Walk for Peace Foundation · 501(c)(3) Nonprofit</span><span>🕊 May all beings be happy</span></div>
 </footer>
 </body>
 </html>

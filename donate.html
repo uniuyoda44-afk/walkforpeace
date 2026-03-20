@@ -11,7 +11,14 @@ body{font-family:'Open Sans',sans-serif;color:#1a1a1a;background:#fff;overflow-x
 img{display:block;}
 a{text-decoration:none;color:inherit;}
 button{cursor:pointer;font-family:inherit;}
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;align-items:center;padding:0 0.5rem;gap:0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #e0e6ef;box-shadow:0 1px 8px rgba(0,0,0,.07);display:flex;flex-direction:column;align-items:stretch;}
+.nav-banner{background:#f8f8f8;padding:.55rem 1rem;text-align:center;font-size:.92rem;color:#1a1a1a;border-bottom:1px solid rgba(0,0,0,.08);}
+.nav-banner span{display:block;line-height:1.2;}
+.nav-main{display:flex;align-items:center;padding:0 0.5rem;gap:0;height:88px;}
+.site-banner{background:#f4fbfa;color:#1a1a1a;text-align:center;padding:.7rem 1rem;font-size:.95rem;border-bottom:1px solid rgba(0,0,0,.08);}
+.site-banner-inner{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:.25rem;}
+.site-banner-title{font-weight:700;}
+
 .nav-logo{display:flex;align-items:center;gap:.45rem;flex-shrink:0;margin-right:auto;}
 .nav-logo-icon{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#5BA3D9,#1B56E8);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
 .nav-logo-text{font-family:'Merriweather',serif;font-size:.95rem;font-weight:400;color:#1a1a1a;}
@@ -24,28 +31,346 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:100px;background:#ff
 .nav-btn:hover{background:#1340C0;}
 .nav-btn.yellow{background:#F5A721;}
 .nav-btn.yellow:hover{background:#D99010;}
+
+/* ---------- Donate form styling ---------- */
+.donate-hero{min-height:calc(100vh - 150px);padding:3.5rem 1rem;background:linear-gradient(125deg,rgba(239,250,255,.95) 0%,rgba(242,251,240,.95) 100%);display:flex;align-items:center;justify-content:center;}
+.donate-card{width:100%;max-width:720px;background:#fff;border-radius:18px;box-shadow:0 18px 42px rgba(0,0,0,.12);padding:2.8rem 2.4rem;position:relative;}
+.donate-card h1{font-family:'Merriweather',serif;font-size:2.4rem;color:#1340A0;margin-bottom:.65rem;}
+.donate-card p{font-size:1.05rem;color:#3a3a3a;line-height:1.6;margin-bottom:1.7rem;}
+.field{margin-bottom:1.25rem;}
+.field label{display:block;font-weight:700;font-size:.92rem;color:#1a1a1a;margin-bottom:.45rem;}
+.field input,.field textarea{width:100%;border:1px solid rgba(0,0,0,.14);border-radius:12px;padding:.92rem 1rem;font-size:1rem;transition:border-color .2s,box-shadow .2s;background:#fff;}
+.field input:focus,.field textarea:focus{border-color:#1B56E8;box-shadow:0 0 0 4px rgba(27,86,232,.12);outline:none;}
+.field textarea{min-height:120px;resize:vertical;}
+.donate-submit{width:100%;background:#1B56E8;color:#fff;border:none;border-radius:12px;padding:.95rem 1.1rem;font-size:1.05rem;font-weight:700;cursor:pointer;transition:transform .12s,background .2s;}
+.donate-submit:hover{background:#1340c0;transform:translateY(-1px);}
+.donate-note{font-size:.9rem;color:#4a4a4a;line-height:1.5;margin-top:1rem;text-align:center;}
+
+footer{background:#15192b;color:rgba(255,255,255,.55);padding:2rem 2.5rem .9rem;}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:1.8rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:.8rem;}
+.ft-logo-text{font-family:'Merriweather',serif;font-size:.9rem;color:#fff;margin-bottom:.5rem;}
+.ft-logo-text em{font-style:italic;color:#F5A721;}
+.ft-brand p{font-size:.76rem;line-height:1.65;max-width:200px;}
+.ft-col h4{color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.65rem;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:.38rem;}
+.ft-col a{font-size:.76rem;color:rgba(255,255,255,.48);transition:color .18s;}
+.ft-col a:hover{color:#F5A721;}
+.ft-bottom{display:flex;justify-content:space-between;font-size:.7rem;color:rgba(255,255,255,.3);flex-wrap:wrap;gap:.5rem;}
 </style>
 </head>
 <body>
+
 <!-- NAV -->
-<nav>
-  <div class="nav-logo">
-    <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
-    <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Dhammacetiya</span>
+  <div class="nav-main">
+    <div class="nav-logo">
+      <img src="./images/logooo.png" alt="Dhammacetiya Logo" style="max-height:90px; width:auto; display:block; object-fit:contain; margin:0; padding:4px 0;" />
+      <span style="font-family:'Merriweather',serif; font-size:2.2rem; font-weight:900; color:#4a2c29; letter-spacing:0.04em; margin-left:-1.1em; position:relative; z-index:2;">Walk for Peace Revisit</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="donate.html" class="on">Donate</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
   </div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="events.html">Events</a></li>
-    <li><a href="donate.html" class="on">Donate</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <button class="nav-btn" onclick="location.href='donate.html'">Donate Now</button>
 </nav>
 <!-- MAIN CONTENT -->
-<div style="margin-top:110px;">
-  <!-- Place your donate page content here -->
+<div style="margin-top:120px;">
+  <section class="donate-hero">
+    <div class="donate-card">
+      <h1>Support Walk for Peace</h1>
+      <p>We’re honored you’d like to contribute. Please share your details below so we can follow up and keep you updated on how your support is helping the walk.</p>
+
+      <form id="donateForm" onsubmit="handleDonate(event)">
+        <div class="field">
+          <label for="donorName">Full name</label>
+          <input id="donorName" name="name" type="text" placeholder="Jane Doe" required />
+        </div>
+
+        <div class="field">
+          <label for="donorEmail">Email address</label>
+          <input id="donorEmail" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field">
+          <label for="donorPhone">Phone number</label>
+          <input id="donorPhone" name="phone" type="tel" placeholder="(+1) 555‑123‑4567" required />
+        </div>
+
+        <div class="field">
+          <label for="donorCountry">Country</label>
+          <input id="donorCountry" name="country" list="countryList" placeholder="Start typing your country" required />
+          <datalist id="countryList">
+            <option value="Afghanistan">
+            <option value="Albania">
+            <option value="Algeria">
+            <option value="Andorra">
+            <option value="Angola">
+            <option value="Antigua and Barbuda">
+            <option value="Argentina">
+            <option value="Armenia">
+            <option value="Australia">
+            <option value="Austria">
+            <option value="Azerbaijan">
+            <option value="Bahamas">
+            <option value="Bahrain">
+            <option value="Bangladesh">
+            <option value="Barbados">
+            <option value="Belarus">
+            <option value="Belgium">
+            <option value="Belize">
+            <option value="Benin">
+            <option value="Bhutan">
+            <option value="Bolivia">
+            <option value="Bosnia and Herzegovina">
+            <option value="Botswana">
+            <option value="Brazil">
+            <option value="Brunei">
+            <option value="Bulgaria">
+            <option value="Burkina Faso">
+            <option value="Burundi">
+            <option value="Cabo Verde">
+            <option value="Cambodia">
+            <option value="Cameroon">
+            <option value="Canada">
+            <option value="Central African Republic">
+            <option value="Chad">
+            <option value="Chile">
+            <option value="China">
+            <option value="Colombia">
+            <option value="Comoros">
+            <option value="Congo (Congo-Brazzaville)">
+            <option value="Costa Rica">
+            <option value="Côte d'Ivoire">
+            <option value="Croatia">
+            <option value="Cuba">
+            <option value="Cyprus">
+            <option value="Czechia (Czech Republic)">
+            <option value="Democratic Republic of the Congo">
+            <option value="Denmark">
+            <option value="Djibouti">
+            <option value="Dominica">
+            <option value="Dominican Republic">
+            <option value="Ecuador">
+            <option value="Egypt">
+            <option value="El Salvador">
+            <option value="Equatorial Guinea">
+            <option value="Eritrea">
+            <option value="Estonia">
+            <option value="Eswatini (fmr. Swaziland)">
+            <option value="Ethiopia">
+            <option value="Fiji">
+            <option value="Finland">
+            <option value="France">
+            <option value="Gabon">
+            <option value="Gambia">
+            <option value="Georgia">
+            <option value="Germany">
+            <option value="Ghana">
+            <option value="Greece">
+            <option value="Grenada">
+            <option value="Guatemala">
+            <option value="Guinea">
+            <option value="Guinea-Bissau">
+            <option value="Guyana">
+            <option value="Haiti">
+            <option value="Honduras">
+            <option value="Hungary">
+            <option value="Iceland">
+            <option value="India">
+            <option value="Indonesia">
+            <option value="Iran">
+            <option value="Iraq">
+            <option value="Ireland">
+            <option value="Israel">
+            <option value="Italy">
+            <option value="Jamaica">
+            <option value="Japan">
+            <option value="Jordan">
+            <option value="Kazakhstan">
+            <option value="Kenya">
+            <option value="Kiribati">
+            <option value="Kuwait">
+            <option value="Kyrgyzstan">
+            <option value="Laos">
+            <option value="Latvia">
+            <option value="Lebanon">
+            <option value="Lesotho">
+            <option value="Liberia">
+            <option value="Libya">
+            <option value="Liechtenstein">
+            <option value="Lithuania">
+            <option value="Luxembourg">
+            <option value="Madagascar">
+            <option value="Malawi">
+            <option value="Malaysia">
+            <option value="Maldives">
+            <option value="Mali">
+            <option value="Malta">
+            <option value="Marshall Islands">
+            <option value="Mauritania">
+            <option value="Mauritius">
+            <option value="Mexico">
+            <option value="Micronesia">
+            <option value="Moldova">
+            <option value="Monaco">
+            <option value="Mongolia">
+            <option value="Montenegro">
+            <option value="Morocco">
+            <option value="Mozambique">
+            <option value="Myanmar (Burma)">
+            <option value="Namibia">
+            <option value="Nauru">
+            <option value="Nepal">
+            <option value="Netherlands">
+            <option value="New Zealand">
+            <option value="Nicaragua">
+            <option value="Niger">
+            <option value="Nigeria">
+            <option value="North Korea">
+            <option value="North Macedonia">
+            <option value="Norway">
+            <option value="Oman">
+            <option value="Pakistan">
+            <option value="Palau">
+            <option value="Panama">
+            <option value="Papua New Guinea">
+            <option value="Paraguay">
+            <option value="Peru">
+            <option value="Philippines">
+            <option value="Poland">
+            <option value="Portugal">
+            <option value="Qatar">
+            <option value="Romania">
+            <option value="Russia">
+            <option value="Rwanda">
+            <option value="Saint Kitts and Nevis">
+            <option value="Saint Lucia">
+            <option value="Saint Vincent and the Grenadines">
+            <option value="Samoa">
+            <option value="San Marino">
+            <option value="Sao Tome and Principe">
+            <option value="Saudi Arabia">
+            <option value="Senegal">
+            <option value="Serbia">
+            <option value="Seychelles">
+            <option value="Sierra Leone">
+            <option value="Singapore">
+            <option value="Slovakia">
+            <option value="Slovenia">
+            <option value="Solomon Islands">
+            <option value="Somalia">
+            <option value="South Africa">
+            <option value="South Korea">
+            <option value="South Sudan">
+            <option value="Spain">
+            <option value="Sri Lanka">
+            <option value="Sudan">
+            <option value="Suriname">
+            <option value="Sweden">
+            <option value="Switzerland">
+            <option value="Syria">
+            <option value="Taiwan">
+            <option value="Tajikistan">
+            <option value="Tanzania">
+            <option value="Thailand">
+            <option value="Timor-Leste">
+            <option value="Togo">
+            <option value="Tonga">
+            <option value="Trinidad and Tobago">
+            <option value="Tunisia">
+            <option value="Turkey">
+            <option value="Turkmenistan">
+            <option value="Tuvalu">
+            <option value="Uganda">
+            <option value="Ukraine">
+            <option value="United Arab Emirates">
+            <option value="United Kingdom">
+            <option value="United States">
+            <option value="Uruguay">
+            <option value="Uzbekistan">
+            <option value="Vanuatu">
+            <option value="Vatican City">
+            <option value="Venezuela">
+            <option value="Vietnam">
+            <option value="Yemen">
+            <option value="Zambia">
+            <option value="Zimbabwe">
+          </datalist>
+        </div>
+
+        <div class="field">
+          <label for="donationReason">Reason for donation</label>
+          <textarea id="donationReason" name="reason" placeholder="(Optional) Tell us what inspired you..." rows="4"></textarea>
+        </div>
+
+        <button class="donate-submit" type="submit">Submit Donation Info</button>
+        <p class="donate-note">This form sends your message to our team (email) and then redirects you to the thank-you page.</p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // Replace the endpoint below with your own Formspree form URL.
+    // (Sign up at https://formspree.io and create a form to get a unique endpoint.)
+    const FORM_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID';
+
+    async function handleDonate(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const country = form.country.value.trim();
+      const reason = form.reason.value.trim();
+
+      if (!name || !email || !phone || !country) {
+        alert('Please fill in your name, email, phone, and country.');
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('phone', phone);
+      formData.append('country', country);
+      formData.append('reason', reason);
+
+      try {
+        const response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (!response.ok) throw new Error('Network response was not ok');
+
+        window.location.href = 'thankfordonation.html';
+      } catch (err) {
+        console.error(err);
+        alert('There was a problem submitting your info. Please try again or email us directly.');
+      }
+    }
+  </script>
 </div>
-<!-- ...existing code... -->
+
+<footer>
+  <div class="ft-grid">
+    <div class="ft-brand">
+      <div class="ft-logo-text">🕊 Walk <em>for</em> Peace</div>
+      <p>A nonprofit Buddhist foundation walking together for a peaceful world — one step, one community, one heart at a time.</p>
+    </div>
+    <div class="ft-col"><h4>Navigate</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="events.html">Events</a></li><li><a href="donate.html">Donate</a></li></ul></div>
+    <div class="ft-col"><h4>Get Involved</h4><ul><li><a href="join.html">Join the Walk</a></li><li><a href="#">Volunteer</a></li><li><a href="#">Partner</a></li></ul></div>
+    <div class="ft-col"><h4>Foundation</h4><ul><li><a href="#">Annual Report</a></li><li><a href="contact.html">Contact</a></li><li><a href="#">Privacy Policy</a></li></ul></div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2026 Walk for Peace Foundation · 501(c)(3) Nonprofit</span>
+    <span>🕊 May all beings be happy</span>
+  </div>
+</footer>
+
 </body>
 </html>
